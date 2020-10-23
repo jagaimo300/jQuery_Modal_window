@@ -3,12 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>jQuery_Modal-window</title>
+  <title>JS Modal window</title>
+  <link rel="stylesheet" href="reset.css">  
+  <link rel="stylesheet" href="style.css">
   
 </head>
 <body>
+  <main>
+    <h1>JS Modal window</h1>
+    <a id="openModal" class="openModal">Click here</a>
 
-
-  
+    <!-- Modal window -->
+    <div class="modal" id="modal">
+      <h2>Modal Menu</h2>
+      <div class="modalItems">
+        アイテム<br>
+        アイテム<br>
+        アイテム<br>
+        アイテム<br>
+        アイテム<br>
+        アイテム<br>
+      </div>
+      <a id="closeModal" class="closeModal">X Close</a>
+      
+    </div>
+    <div id="mask" class="mask"></div>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 </body>
 </html>
