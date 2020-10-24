@@ -1,15 +1,43 @@
-a {
-  color: #ffffff;
+@-webkit-keyframes modal {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@keyframes modal {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 50%;
+  }
+}
+
+@-webkit-keyframes modalClose {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes modalClose {
+  0% {
+    top: 50%;
+  }
+  100% {
+    top: 100%;
+  }
 }
 
 body {
+  position: relative;
   background-color: #333333;
   color: #ffffff;
-  height: 100vh;
-}
-
-.fixed {
-  position: fixed;
 }
 
 main {
@@ -21,13 +49,8 @@ main {
   height: 15rem;
 }
 
-main h1 {
-  font-size: 30px;
-  font-weight: bold;
-  margin: 30px;
-}
-
 main .openModal {
+  background-color: #ffffff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -39,16 +62,21 @@ main .openModal {
           align-items: center;
   width: 20rem;
   height: 2.5rem;
-  background-color: #ffffff;
   color: #333333;
-  font-size: 1rem;
   border-radius: .25rem;
-  cursor: pointer;
+}
+
+main h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 30px;
 }
 
 main .modal {
   position: relative;
-  top: 10%;
+  width: 40%;
+  height: 100vh;
+  top: 0;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -56,31 +84,32 @@ main .modal {
   color: #333333;
   padding: 2.25rem;
   border-radius: .25rem;
-  width: 40%;
-  z-index: 2;
-  opacity: 0;
-  visibility: hidden;
+  display: none;
   -webkit-box-shadow: 0px 0px 3px #000000;
           box-shadow: 0px 0px 3px #000000;
-  max-height: 100vh;
 }
 
 main .modal h2 {
   font-weight: bold;
   font-size: 1.25rem;
   margin-bottom: .75rem;
+  text-align: center;
 }
 
-main .modal .modalItems {
-  line-height: 1.8;
-}
-
-main .modal .closeModal {
+main .modal .inner {
+  position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: 10%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+main .modal .inner .closeModal {
+  left: 50%;
+  top: 150%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  position: fixed;
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,23 +129,15 @@ main .modal .closeModal {
   cursor: pointer;
 }
 
-main .mask {
-  position: fixed;
-  left: 0;
+main .overLay {
+  position: absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #000000;
-  opacity: .7;
-  z-index: 1;
-  opacity: 0;
-  visibility: hidden;
-}
-
-main .active {
+  left: 0;
+  background: #000000;
   opacity: 0.7;
-  visibility: visible;
-  -webkit-transition: 0.7s;
-  transition: 0.7s;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
+  display: none;
 }
 /*# sourceMappingURL=style.css.map */

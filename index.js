@@ -1,13 +1,18 @@
-// document.getElementById("openModal").addEventListener("click",() => {
-//   document.getElementById("modal").classList.add("active");
-//   document.getElementById("mask").classList.add("active");
+$(function(){
+  $("#openModal").click(function(){
 
-// });
-// document.getElementById("closeModal").addEventListener("click",() => {
-//   document.getElementById("modal").classList.remove("active");
-//   document.getElementById("mask").classList.remove("active");
+        $(this).attr("class"),
+        href = $(this).attr("href");
 
-// });
+        $(href).fadeIn();
+        $(this).addClass("open");
+        return false;
+  });
 
 
-console.log("foo");
+  $("#closeModal").click(function(){
+    $(this).parents("#modal").fadeOut();
+    $("#openModal").removeClass("open");
+    return false;
+  });
+});
